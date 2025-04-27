@@ -13,7 +13,9 @@ def load_weights_and_prices_data(
 
 
 @transaction.atomic
-def import_weights_and_prices_data(*, dataframes: tuple[pd.DataFrame, pd.DataFrame]) -> None:
+def import_weights_and_prices_data(
+    *, dataframes: tuple[pd.DataFrame, pd.DataFrame]
+) -> None:
 
     print("Importing weights and prices data...")
 
@@ -58,3 +60,24 @@ def import_weights_and_prices_data(*, dataframes: tuple[pd.DataFrame, pd.DataFra
                 asset=asset, date=date, defaults={"value": price_value}
             )
 
+@transaction.atomic
+def calculate_initial_quantities():
+    print("Calculating initial quantities...")
+    portfolios = Portfolio.objects.all()
+    for portfolio in portfolios:
+        weights = Weight.objects.filter(portfolio=portfolio)
+        for weight in weights:
+            asset = weight.asset
+            try:
+                price = Price.objects.get(asset=asset, date=weight.date)
+                quantity_value = (weight.value * portfolio.initial_value) / price.value
+                Quantity.objects.get_or_create(
+                    portfolio=portfolio,
+                    asset=asset,
+                    date=weight.date,
+                    defaults={"value": quantity_value},
+                )
+            except Price.DoesNotExist:
+                print(f"No price found for {asset.name} on {weight.date}")
+    print("Initial quantities calculated successfully")
+    return True

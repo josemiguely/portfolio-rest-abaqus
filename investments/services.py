@@ -13,7 +13,7 @@ def load_weights_and_prices_data(
 
 
 @transaction.atomic
-def import_weights_and_prices_data(*, dataframes: tuple[pd.DataFrame, pd.DataFrame]):
+def import_weights_and_prices_data(*, dataframes: tuple[pd.DataFrame, pd.DataFrame]) -> None:
 
     print("Importing weights and prices data...")
 
@@ -57,3 +57,4 @@ def import_weights_and_prices_data(*, dataframes: tuple[pd.DataFrame, pd.DataFra
             Price.objects.get_or_create(
                 asset=asset, date=date, defaults={"value": price_value}
             )
+

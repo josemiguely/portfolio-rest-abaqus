@@ -24,7 +24,7 @@ python manage.py load_weights_prices
 ```
 4. Calcular los cantidades iniciales:
 ```bash
-python manage.py calculate_quantities
+python manage.py calculate_initial_quantities
 ```
 5. Iniciar el servidor:
 ```bash
@@ -32,7 +32,7 @@ python manage.py runserver
 ```
 6. Probar la API (portafolios disponibles: "portafolio 1", "portafolio 2"):
 ```bash
-curl "http://127.0.0.1:8000/api/portfolio-metrics/?fecha_inicio=2022-02-15&fecha_fin=2023-02-16&portfolio=portafolio 1"
+curl "http://127.0.0.1:8000/api/v1/portfolio-metrics/?fecha_inicio=2022-02-15&fecha_fin=2023-02-16&portfolio=portafolio%201"
 ```
 # Estilo del código
 Se siguió el estilo de código de HackSoft dentro de lo posible y se utilizó Black para formatear el código. También se utilizó isort para ordenar las importaciones.

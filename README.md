@@ -30,7 +30,7 @@ python manage.py calculate_quantities
 ```bash
 python manage.py runserver
 ```
-6. Probar la API:
+6. Probar la API (portafolios disponibles: "portafolio 1", "portafolio 2"):
 ```bash
 curl "http://127.0.0.1:8000/api/portfolio-metrics/?fecha_inicio=2022-02-15&fecha_fin=2023-02-16&portfolio=portafolio 1"
 ```

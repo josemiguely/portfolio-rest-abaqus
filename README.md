@@ -3,7 +3,7 @@ Prueba técnica Abaqus DRF para manejar portafolios de inversión.
 
 # Preguntas realizadas
 
-Se realizaron las preguntas de la 1 a la 4. También se vió el video de Django-Styleguide de HackSoft y se utilizó el patrón de services usando transactions, type hints y only keyword arguments (muy interesante el video, aprendí mucho).
+Se realizaron las preguntas de la 1 a la 4 (sin Bonus 1-2). También se vió el video de Django-Styleguide de HackSoft y se utilizó el patrón de services usando transactions, type hints y only keyword arguments (muy interesante el video, aprendí mucho).
 
 # Setup
 
@@ -37,7 +37,7 @@ curl "http://127.0.0.1:8000/api/portfolio-metrics/?fecha_inicio=2022-02-15&fecha
 # Estilo del código
 Se siguió el estilo de código de HackSoft dentro de lo posible y se utilizó Black para formatear el código. También se utilizó isort para ordenar las importaciones.
 
-# TODOS o cosas que me hubiera gustado hacer
+# TODOS o Cosas que me hubiera gustado hacer
 
 En el código dejé TODOS sin completar, pero básicamente son cosas que me hubiera gustado hacer si tuviera más tiempo. Algunas de ellas son:
 - Páginar la API y crear serializers
@@ -46,3 +46,4 @@ En el código dejé TODOS sin completar, pero básicamente son cosas que me hubi
 - Añadir tests
 - Dockerizar la aplicación
 - Añadir un README más completo.
+- Añadir pre-commit hooks para formatear el código y hacer linting.

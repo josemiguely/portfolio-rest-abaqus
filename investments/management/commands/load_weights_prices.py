@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
+
 from investments.services import (
-    load_weights_and_prices_data,
     import_weights_and_prices_data,
+    load_weights_and_prices_data,
 )
 
 

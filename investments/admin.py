@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Asset, Price, Weight, Portfolio, Quantity
+
+from .models import Asset, Portfolio, Price, Quantity, Weight
 
 admin.site.register(Portfolio)
 admin.site.register(Asset)

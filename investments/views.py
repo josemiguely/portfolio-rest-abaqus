@@ -1,9 +1,12 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from investments.models import Portfolio, Price, Quantity
-from decimal import Decimal
 from datetime import datetime
+from decimal import Decimal
+
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from investments.models import Portfolio, Price, Quantity
+
 
 class PortfolioMetricsView(APIView):
     def get(self, request):
@@ -102,6 +105,9 @@ class PortfolioMetricsView(APIView):
             )
         # TODO: ADD serializer and paginate response
         return Response(
-            {"portfolio_name": portfolio_name, "results": results, },
+            {
+                "portfolio_name": portfolio_name,
+                "results": results,
+            },
             status=status.HTTP_200_OK,
         )

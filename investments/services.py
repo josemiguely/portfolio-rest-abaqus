@@ -1,7 +1,9 @@
 from decimal import Decimal
+
 import pandas as pd
 from django.db import transaction
-from investments.models import Portfolio, Price, Weight, Asset, Quantity
+
+from investments.models import Asset, Portfolio, Price, Quantity, Weight
 
 
 def load_weights_and_prices_data(
@@ -59,6 +61,7 @@ def import_weights_and_prices_data(
             Price.objects.get_or_create(
                 asset=asset, date=date, defaults={"value": price_value}
             )
+
 
 @transaction.atomic
 def calculate_initial_quantities() -> bool:

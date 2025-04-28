@@ -61,7 +61,7 @@ def import_weights_and_prices_data(
             )
 
 @transaction.atomic
-def calculate_initial_quantities():
+def calculate_initial_quantities() -> bool:
     print("Calculating initial quantities...")
     portfolios = Portfolio.objects.all()
     for portfolio in portfolios:
